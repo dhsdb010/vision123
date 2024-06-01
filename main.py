@@ -1,11 +1,8 @@
 import cv2
 import cvlib as cv
 from cvlib.object_detection import draw_bbox
-import pygame
+import sound
 import time
-
-# Initialize pygame mixer
-pygame.mixer.init()
 
 # Define focal length and known object widths (in cm)
 focal = 1500  # Example focal length, adjust as needed
@@ -32,10 +29,10 @@ known_widths = {
 def get_distance(pixels, known_width):
     return (known_width * focal) / pixels
 
-# Function to play sound multiple times
-def play_sound_multiple_times(times, duration):
+# Function to vibrate multiple times
+def warning_multiple_times(times, duration):
     for _ in range(times):
-        pygame.mixer.Sound('warning.mp3').play()
+        sound.play_effect('digital:ZapThreeToneUp')
         time.sleep(duration)
 
 # Create video capture object
@@ -59,7 +56,8 @@ while cap.isOpened():
 
             if distance < 50:
                 cv2.putText(frame, 'WARNING: Object too close!', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
-                play_sound_multiple_times(3, 0.5)  # Play sound 3 times with 0.5 seconds pause
+                warning_multiple_times(3, 0.5)  # Vibrate 3 times with 0.5 seconds pause
+
 
     # Draw bounding boxes and labels on the frame
     output_image = draw_bbox(frame, bbox, label, conf)
