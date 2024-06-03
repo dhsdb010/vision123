@@ -1,6 +1,8 @@
 # vision123
 using single camera real-time object detection and estimate distance of each object.
 
+https://youtube.com/shorts/imkQrFfUaE0?feature=share
+
 ------------------------------------
 ## Inspiration
 The HC-SR04 ultrasonic sensor and Arduino Uno served as inspiration for the project. This hackathon is themed on engineering, with a focus on hardware in particular. Thus, I chose to locate some "hardwear" that seemed approachable and convenient. Since I had an Arduino Uno and an HC-SR04, I tried to make something with these components of hardware, but every idea I had was either too simple or not very useful. I decide to challenge myself and try using the "cell phone camera," which is the closest hardwear we have. and I had an idea to create a program that assists blind individuals in finding solutions to their problems.
